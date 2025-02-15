@@ -1,7 +1,7 @@
 import {
   Card  
 } from "@/components/ui/card"
-import Image from "next/image"
+
 
  
 export default function CardWithForm({playerName}: {playerName: string}) {

@@ -13,9 +13,7 @@ import { useState } from "react";
 import PlayerCard from "./PlayerCard";
 import TeamShuffler from "./TeamShuffler";
 
-export function PopoverTeams() {
-  const baby =
-    "https://www.google.com/url?sa=i&url=https%3A%2F%2Frivadavia.com.ar%2Fnoticias%2Fbasta-baby%2Fel-editorial-de-baby-etchecopar-el-kirchnerismo-se-llevo-todo&psig=AOvVaw3t1rpLvYm2G0sg5PQJucY3&ust=1739667452163000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCICzkKC8xIsDFQAAAAAdAAAAABAE";
+export function PopoverTeams() {  
   const [playerList, setPlayerList] = useState<Player[]>([]);
   const [isShuffled, setIsShuffled] = useState(false);
   const { toast } = useToast()
