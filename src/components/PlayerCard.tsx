@@ -1,18 +1,25 @@
-import {
-  Card  
-} from "@/components/ui/card"
+import { Card } from "@/components/ui/card";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
+export default function CardWithForm({ playerName }: { playerName: string }) {
 
- 
-export default function CardWithForm({playerName}: {playerName: string}) {
+  const random = (min: number, max: number) => {
+    Math.floor(Math.random() * (max - min + 1) + min);
+  }
+
   return (
     <Card className="text-sm md:text-base border-[1px] border-gray-400 rounded-lg p-2 bg-black">
-        <div className="flex justify-between items-center">
-            <h1>{playerName}</h1>
-            <div>
-                <img className="w-14 h-14 rounded-full object-cover" src='https://i0.wp.com/elintransigente.com/wp-content/uploads/2020/08/3101561.jpg?w=2000&ssl=1' alt={playerName} />
-            </div>            
+      <div className="flex justify-between items-center">
+        <h1>{playerName}</h1>
+        <div>
+          <Avatar>
+            <AvatarImage src="" />
+            <AvatarFallback>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/2048px-User-avatar.svg.png" alt="User avatar" />
+            </AvatarFallback>
+          </Avatar>          
         </div>
+      </div>
     </Card>
-  )
+  );
 }

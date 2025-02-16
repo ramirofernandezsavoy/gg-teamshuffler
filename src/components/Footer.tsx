@@ -18,8 +18,8 @@ export default function Footer() {
                 </p>
                 <div className="flex justify-end gap-2">                    
                 <Link className="hover:scale-125 duration-150 p-1" href="https://link.mercadopago.com.ar/ramirosavoy" target="_blank"><Image src={coin} alt="Coin Icon" width={32} /></Link>
-                <Link className="hover:scale-125 duration-150 p-1" href="/" target="_blank"><Image src={github} alt="Github Icon" width={32} /></Link>
-                <Link className="hover:scale-125 duration-150 p-1" href="/" target="_blank"><Image src={mail} alt="Mail Icon" width={32} /></Link>
+                <Link className="hover:scale-125 duration-150 p-1" href="https://github.com/ramirofernandezsavoy/gg-teamshuffler" target="_blank"><Image src={github} alt="Github Icon" width={32} /></Link>
+                <Link className="hover:scale-125 duration-150 p-1" href="mailto:savoyrfs@gmail.com" target="_blank"><Image src={mail} alt="Mail Icon" width={32} /></Link>
                 </div>
             </div>
         </footer>

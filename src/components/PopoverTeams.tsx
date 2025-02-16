@@ -57,7 +57,7 @@ export function PopoverTeams() {
           <PlayerCard key={player.name} playerName={player.name} />
         ))}
       </div>
-      <Button onClick={handleShuffle} className="mt-2 bg-light-text text-black hover:bg-white">
+      <Button onClick={handleShuffle} className="mt-2 bg-slate-900 text-white hover:bg-slate-700">
         Armar los equipos        
       </Button>
      {isShuffled 
