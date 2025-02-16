@@ -1,15 +1,21 @@
 import { PopoverTeams } from "@/components/PopoverTeams"
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Armador de equipos | Goal Gurus",
+  description: "Armá tus equipos basandote en las habilidades de tus compañeros.",
+};
 
 export default function Teams() {
   return (
-    <div>
+    <div className="wrapper min-h-[80dvh]">
         <div>
-            <h2 className="text-4xl text-center mt-4">Equipos</h2>
-            <p className="text-center text-white/70 px-4">
+            <h2 className="text-2xl mt-4">Armá tus equipos</h2>
+            <p className="text-white/70">
                 Ingresá los jugadores para el evento.
             </p>
         </div>   
-        <div className="flex justify-center mt-4">
+        <div className="mt-6">
             <PopoverTeams />
         </div>
 

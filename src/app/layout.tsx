@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Inter } from 'next/font/google'
 import Nav from "@/components/Nav";
+import Footer from "@/components/Footer";
 import { Toaster } from "@/components/ui/toaster"
 
 
@@ -21,10 +22,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.className}>
       <body
-        className={`antialiased bg-dark-bg text-white`}
+        className={`antialiased bg-black text-white`}
       >        
         <Nav />
-        {children}
+          {children}        
+        <Footer />
         <Toaster />
       </body>
     </html>

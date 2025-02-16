@@ -1,16 +1,19 @@
-import Link from "next/link"
+import Link from "next/link";
+import Image from "next/image";
+import logo from "../../public/gg-logo.png";
 
 export default function Nav() {
   return (
-    <nav className="h-18 w-screen bg-blue-600/30 backdrop-blur-md text-center flex items-center justify-between p-4 sticky top-0 z-10">
-      <p>
-        Logo
-      </p>
-      <ul className="flex gap-6">
-        <Link href="/teams">Teams</Link>
-        <Link href="/players">Players</Link>
-        <Link href="/games">Games</Link>
-      </ul>
+    <nav className="w-screen text-center sticky top-0 z-10 bg-black">
+      <section className="flex items-center justify-between wrapper">
+        <Image src={logo} alt="Logo Goal Gurus" height={120} width={120} />
+
+        <ul className="flex text-sm gap-4 md:gap-6 text-white font-medium">
+          <Link href="/teams">Equipos</Link>
+          <Link href="/players">Jugadores</Link>
+          <Link href="/games">Partidos</Link>
+        </ul>
+      </section>
     </nav>
-  )
+  );
 }

@@ -103,7 +103,7 @@ const PlayerInputForm: React.FC<PlayerInputFormProps> = ({
           </div>
 
           {renderSlider('speed', 'Velocidad')}
-          {renderSlider('technique', 'Tecnica')}          
+          {renderSlider('technique', 'Técnica')}          
           {renderSlider('teamwork', 'Trabajo en equipo')}
           {renderSlider('resistance', 'Resistencia')}
 

@@ -140,7 +140,7 @@ interface Player {
   return (
     <div className="w-full flex flex-col">
       <button
-        className={`h-12 bg-red-500 py-2 px-4 my-4 mx-auto`} 
+        className={`border-[1px] border-white rounded-md my-4 h-10`} 
         onClick={handleGenerateTeams}
         disabled={playersToOrder.length < 2}
       >
@@ -148,7 +148,7 @@ interface Player {
       </button>
       
       {teamArrangements.map((arrangement, index) => (
-        <div className="w-full p-2 bg-slate-900 rounded-lg mb-4" key={index}>
+        <div className="w-full p-4 bg-slate-900/70 rounded-lg mb-4" key={index}>
             <div className="flex justify-between">
             <h3 className="text-xl">Equipos ({index + 1})</h3>
             <p className="text-sm ">Diferencia de nivel: <span className="font-bold text-orange-300">{arrangement.scoreDifference.toFixed(2)}</span></p>
@@ -165,9 +165,9 @@ interface Player {
               ))}
             </div>
             <div className="p-2">
-              <h4>Equipo B</h4>
+              <h4 className="text-right">Equipo B</h4>
               {arrangement.teamB.map((player) => (
-                <div key={player.name}>
+                <div className="text-right" key={player.name}>
                   {player.name} <span className={`${player.overall < 4 ? "text-red-400" : player.overall < 6 ? "text-yellow-400" :"text-green-400"}`}>(#{player.overall})</span>
                 </div>
               ))}

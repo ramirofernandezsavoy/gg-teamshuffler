@@ -1,5 +1,5 @@
 "use client";
-import { ChevronDown, ChevronRight } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import {
@@ -40,26 +40,25 @@ export function PopoverTeams() {
   }
 
   return (
-    <section className="flex flex-col items-center">
+    <section className="flex flex-col md:max-w-[500px] md:mx-auto">
       <Popover>
         <PopoverTrigger asChild>
           <Button variant="outline">
-            Agregar jugador
-            <ChevronRight />
+            Agregar jugadores
+            <ChevronDown />
           </Button>
         </PopoverTrigger>
-        <PopoverContent className="w-[340px]">
+        <PopoverContent>
           <PlayerInputForm onAddPlayer={handleAddPlayer} />
         </PopoverContent>
       </Popover>
-      <div className="grid grid-cols-2 gap-2 mt-4">
+      <div className="grid grid-cols-2 gap-2 my-2">
         {playerList.map((player) => (
           <PlayerCard key={player.name} playerName={player.name} />
         ))}
       </div>
-      <Button onClick={handleShuffle} className="mt-4 bg-indigo-700">
-        Ya están todos?
-        <ChevronDown />
+      <Button onClick={handleShuffle} className="mt-2 bg-light-text text-black hover:bg-white">
+        Armar los equipos        
       </Button>
      {isShuffled 
      ? <TeamShuffler playersToOrder={playerList} />
