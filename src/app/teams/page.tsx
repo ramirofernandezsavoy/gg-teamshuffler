@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function Teams() {
   return (
-    <div className="wrapper min-h-[80dvh]">
+    <div className="wrapper min-h-[700px]">
         <div>
             <h2 className="text-2xl mt-4">Armá tus equipos</h2>
             <p className="text-white/70">

@@ -7,8 +7,8 @@ import mail from "../../public/mail.svg"
 
 export default function Footer() {
   return (
-    <section className="bg-zinc-950 h-24">
-        <footer className="wrapper flex justify-between items-center h-full">
+    <section className="bg-zinc-950 py-4">
+        <footer className="wrapper flex justify-between items-center ">
             <div>
                 Donaciones
             </div>
