@@ -10,7 +10,7 @@ export default function Footer() {
     <section className="bg-zinc-950 py-4">
         <footer className="wrapper flex justify-between items-center ">
             <div>
-                Donaciones
+                {/* Donaciones */}
             </div>
             <div>
                 <p>
