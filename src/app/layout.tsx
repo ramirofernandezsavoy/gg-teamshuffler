@@ -4,6 +4,8 @@ import { Inter } from "next/font/google";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { Toaster } from "@/components/ui/toaster";
+import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from "@vercel/analytics/react"
 
 export const metadata: Metadata = {
   title: "Goal Gurus",
@@ -33,6 +35,8 @@ export default function RootLayout({
           <Footer />
         </div>
         <Toaster />
+        <Analytics/>
+        <SpeedInsights/>
       </body>
     </html>
   );
