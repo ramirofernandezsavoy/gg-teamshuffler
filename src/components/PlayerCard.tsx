@@ -2,11 +2,7 @@ import { Card } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 export default function CardWithForm({ playerName }: { playerName: string }) {
-
-  const random = (min: number, max: number) => {
-    Math.floor(Math.random() * (max - min + 1) + min);
-  }
-
+ 
   return (
     <Card className="text-sm md:text-base border-[1px] border-gray-400 rounded-lg p-2 bg-black">
       <div className="flex justify-between items-center">
