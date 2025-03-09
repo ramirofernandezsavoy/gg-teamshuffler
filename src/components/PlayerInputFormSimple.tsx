@@ -4,10 +4,18 @@ import { Slider } from '@/components/ui/slider';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { UserPlus } from 'lucide-react';
+import { 
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 interface Player {
   name: string;
   overall: number;
+  role?: string;
 }
 
 interface PlayerInputForm2Props {
@@ -17,16 +25,30 @@ interface PlayerInputForm2Props {
 const PlayerInputForm2: React.FC<PlayerInputForm2Props> = ({ onAddPlayer }) => {
   const [playerData, setPlayerData] = useState<Player>({
     name: '',
-    overall: 5
+    overall: 5,
+    role: undefined
   });
+
+  // Predefined roles for the select dropdown
+  const predefinedRoles = [
+    "Arquero",
+    "Defensa",
+    "Mediocampista",
+    "Ataque"    
+  ];
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     onAddPlayer(playerData);
     setPlayerData({
       name: '',
-      overall: 5
+      overall: 5,
+      role: undefined
     });
+  };
+
+  const handleRoleChange = (value: string) => {
+    setPlayerData(prev => ({ ...prev, role: value }));
   };
 
   return (
@@ -38,7 +60,7 @@ const PlayerInputForm2: React.FC<PlayerInputForm2Props> = ({ onAddPlayer }) => {
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label className="block text-sm font-medium mb-2">
-              Player Name
+              Nombre
             </label>
             <Input
               type="text"
@@ -48,6 +70,30 @@ const PlayerInputForm2: React.FC<PlayerInputForm2Props> = ({ onAddPlayer }) => {
               className="w-full"
               required
             />
+          </div>
+
+          {/* Role Selection Dropdown */}
+          <div>
+            <label className="block text-sm font-medium mb-2">
+              Roles
+            </label>
+            <div className="w-full">
+            <Select
+              value={playerData.role}
+              onValueChange={handleRoleChange}
+            >
+              <SelectTrigger className="w-full">
+                <SelectValue placeholder="Elija el rol" />
+              </SelectTrigger>
+              <SelectContent className='w-full bg-black p-1'>                
+                {predefinedRoles.map((role) => (
+                  <SelectItem key={role} value={role}>
+                    {role}
+                  </SelectItem>
+                ))}                
+              </SelectContent>
+            </Select>
+            </div>
           </div>
 
           <div>
@@ -76,7 +122,7 @@ const PlayerInputForm2: React.FC<PlayerInputForm2Props> = ({ onAddPlayer }) => {
             className="w-full flex items-center justify-center gap-2"
           >
             <UserPlus className="w-4 h-4" />
-            Add Player
+            Agregar
           </Button>
         </form>
       </CardContent>
