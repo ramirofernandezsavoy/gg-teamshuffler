@@ -5,7 +5,7 @@ import Hamburguer from "./Hamburguer";
 
 export default function Nav() {
   return (
-    <nav className="w-screen text-center sticky top-0 z-10">
+    <nav className="w-screen text-center sticky top-0 -z-10">
       <section className="flex items-center justify-between wrapper">
         <Link href="/">
         <Image src={logo} alt="Logo Goal Gurus" height={120} width={120} />
