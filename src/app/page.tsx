@@ -10,7 +10,7 @@ export default function Home() {
               <Link href="/teams" className="flex flex-col items-center justify-center bg-red-200 hover:bg-red-400 duration-200 px-4 py-2 w-56 text-black rounded-lg font-medium">              
                 Version: Compleja
               </Link>  
-              <Link href="/teams" className="flex flex-col items-center justify-center bg-blue-200 hover:bg-blue-400 duration-200 px-4 py-2 w-56 text-black rounded-lg font-medium">              
+              <Link href="/teams2" className="flex flex-col items-center justify-center bg-blue-200 hover:bg-blue-400 duration-200 px-4 py-2 w-56 text-black rounded-lg font-medium">              
                 Version: Simple
               </Link>        
             </div>

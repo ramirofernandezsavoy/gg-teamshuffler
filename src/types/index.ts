@@ -10,10 +10,15 @@ interface Player extends PlayerSkills {
   overall: number;
 }
 
+interface SimplePlayer {
+  name: string;
+  overall: number;
+}
+
 interface PlayerInputFormProps {
   onAddPlayer: (player: Player) => void;
   playerToEdit?: Player | null;
   onUpdatePlayer?: (player: Player) => void;
 }
 
-export type { Player, PlayerSkills, PlayerInputFormProps };
+export type { Player, SimplePlayer, PlayerSkills, PlayerInputFormProps };
