@@ -8,11 +8,11 @@ export const metadata: Metadata = {
 
 export default function Teams() {
   return (
-    <div className="wrapper min-h-[700px]">
-        <div>
-            <h2 className="text-2xl mt-4">Armá tus equipos</h2>
-            <p className="text-white/70">
-                Ingresá los jugadores para el evento.
+    <div className="wrapper min-h-[700px] px-4">
+        <div className="max-w-[500px] mx-auto">
+            <h2 className="text-3xl font-bold mt-4">Armá tus equipos</h2>
+            <p className="text-white/70 mt-2 mb-6">
+                Ingresá los jugadores con sus niveles y roles para generar equipos equilibrados.
             </p>
         </div>   
         <div className="mt-6">

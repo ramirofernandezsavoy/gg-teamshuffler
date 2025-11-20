@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Slider } from '@/components/ui/slider';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
@@ -52,81 +51,75 @@ const PlayerInputForm2: React.FC<PlayerInputForm2Props> = ({ onAddPlayer }) => {
   };
 
   return (
-    <Card className="w-screen max-w-xs mx-auto bg-black border border-white mt-4 rounded-md z-50">
-      <CardHeader>
-        <CardTitle>Agregar jugador</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <label className="block text-sm font-medium mb-2">
-              Nombre
-            </label>
-            <Input
-              type="text"
-              value={playerData.name}
-              onChange={(e) => setPlayerData(prev => ({ ...prev, name: e.target.value }))}
-              placeholder="Nombre del jugador"
-              className="w-full"
-              required
-            />
-          </div>
+    <div className="w-full bg-slate-900/50 border border-white/20 rounded-lg p-4 mb-4">
+      <h3 className="text-lg font-semibold mb-4">Agregar jugador</h3>
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <div>
+          <label className="block text-sm font-medium mb-2">
+            Nombre
+          </label>
+          <Input
+            type="text"
+            value={playerData.name}
+            onChange={(e) => setPlayerData(prev => ({ ...prev, name: e.target.value }))}
+            placeholder="Nombre del jugador"
+            className="w-full"
+            required
+          />
+        </div>
 
-          {/* Role Selection Dropdown */}
-          <div>
-            <label className="block text-sm font-medium mb-2">
-              Roles
-            </label>
-            <div className="w-full">
-            <Select
-              value={playerData.role}
-              onValueChange={handleRoleChange}
-            >
-              <SelectTrigger className="w-full">
-                <SelectValue placeholder="Elija el rol" />
-              </SelectTrigger>
-              <SelectContent className='w-full bg-black p-1'>                
-                {predefinedRoles.map((role) => (
-                  <SelectItem key={role} value={role}>
-                    {role}
-                  </SelectItem>
-                ))}                
-              </SelectContent>
-            </Select>
-            </div>
-          </div>
-
-          <div>
-            <div className="flex justify-between items-center mb-2">
-              <label className="text-sm font-medium">
-                Puntaje general
-              </label>
-              <span className="text-sm text-gray-500">
-                {playerData.overall}
-              </span>
-            </div>
-            <Slider
-              defaultValue={[5]}
-              max={10}
-              min={1}
-              step={1}
-              value={[playerData.overall]}
-              onValueChange={(value) => setPlayerData(prev => ({ ...prev, overall: value[0] }))}
-              className="w-full"
-            />
-          </div>
-
-          <Button
-            type="submit"
-            disabled={!playerData.name}
-            className="w-full flex items-center justify-center gap-2"
+        {/* Role Selection Dropdown */}
+        <div>
+          <label className="block text-sm font-medium mb-2">
+            Rol
+          </label>
+          <Select
+            value={playerData.role}
+            onValueChange={handleRoleChange}
           >
-            <UserPlus className="w-4 h-4" />
-            Agregar
-          </Button>
-        </form>
-      </CardContent>
-    </Card>
+            <SelectTrigger className="w-full">
+              <SelectValue placeholder="Elija el rol" />
+            </SelectTrigger>
+            <SelectContent className='w-full bg-black p-1'>                
+              {predefinedRoles.map((role) => (
+                <SelectItem key={role} value={role}>
+                  {role}
+                </SelectItem>
+              ))}                
+            </SelectContent>
+          </Select>
+        </div>
+
+        <div>
+          <div className="flex justify-between items-center mb-2">
+            <label className="text-sm font-medium">
+              Puntaje general
+            </label>
+            <span className="text-sm text-gray-400 font-bold">
+              {playerData.overall}
+            </span>
+          </div>
+          <Slider
+            defaultValue={[5]}
+            max={10}
+            min={1}
+            step={1}
+            value={[playerData.overall]}
+            onValueChange={(value) => setPlayerData(prev => ({ ...prev, overall: value[0] }))}
+            className="w-full"
+          />
+        </div>
+
+        <Button
+          type="submit"
+          disabled={!playerData.name}
+          className="w-full flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700"
+        >
+          <UserPlus className="w-4 h-4" />
+          Agregar jugador
+        </Button>
+      </form>
+    </div>
   );
 };
 

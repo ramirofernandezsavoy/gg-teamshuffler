@@ -1,12 +1,6 @@
 "use client";
-import { ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@radix-ui/react-popover";
 import PlayerInputFormSimple from "./PlayerInputFormSimple";
 import { SimplePlayer } from "../types";
 import { useState } from "react";
@@ -40,24 +34,43 @@ export function PopoverTeamsSimple() {
   }
 
   return (
-    <section className="flex flex-col md:max-w-[500px] md:mx-auto">
-      <Popover>
-        <PopoverTrigger asChild>
-          <Button variant="outline">
-            Agregar jugadores
-            <ChevronDown />
-          </Button>
-        </PopoverTrigger>
-        <PopoverContent>
+    <section className="flex flex-col lg:max-w-[1000px] md:max-w-[700px] md:mx-auto">
+      {/* Layout horizontal en pantallas grandes */}
+      <div className="flex flex-col md:flex-row gap-4 mb-4">
+        {/* Formulario */}
+        <div className="md:w-1/2">
           <PlayerInputFormSimple onAddPlayer={handleAddPlayer} />
-        </PopoverContent>
-      </Popover>
-      <div className="grid grid-cols-2 gap-2 my-2 -z-10">
-        {playerList.map((player) => (
-          <PlayerCard key={player.name} playerName={player.name} />
-        ))}
+        </div>
+        
+        {/* Lista de jugadores */}
+        <div className="md:w-1/2">
+          {playerList.length > 0 ? (
+            <div className="bg-slate-900/30 border border-white/10 rounded-lg p-4 h-full">
+              <h3 className="text-sm font-medium text-white/70 mb-3">
+                Jugadores agregados ({playerList.length})
+              </h3>
+              <div className="grid grid-cols-2 gap-2">
+                {playerList.map((player) => (
+                  <PlayerCard key={player.name} playerName={player.name} />
+                ))}
+              </div>
+            </div>
+          ) : (
+            <div className="bg-slate-900/20 border border-white/10 border-dashed rounded-lg p-4 h-full flex items-center justify-center">
+              <p className="text-white/50 text-sm text-center">
+                Todavía no hay jugadores.<br />
+                Agregá el primero para comenzar.
+              </p>
+            </div>
+          )}
+        </div>
       </div>
-      <Button onClick={handleShuffle} className="mt-2 bg-slate-900 text-white hover:bg-slate-700">
+      
+      <Button 
+        onClick={handleShuffle} 
+        className="bg-blue-600 hover:bg-blue-700 text-white font-medium shadow-lg transition-colors"
+        disabled={playerList.length < 2}
+      >
         Armar los equipos        
       </Button>
      {isShuffled 

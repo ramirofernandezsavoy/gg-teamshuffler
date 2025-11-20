@@ -1,14 +1,13 @@
-import { Card } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 export default function CardWithForm({ playerName }: { playerName: string }) {
  
   return (
-    <Card className="text-sm md:text-base border-[1px] border-gray-400 rounded-lg p-2 bg-black">
+    <div className="text-sm md:text-base border border-white/20 rounded-lg p-3 bg-slate-900/50 hover:bg-slate-900/70 transition-colors">
       <div className="flex justify-between items-center">
-        <h1>{playerName}</h1>
+        <h1 className="font-medium">{playerName}</h1>
         <div>
-          <Avatar>
+          <Avatar className="w-8 h-8">
             <AvatarImage src="" />
             <AvatarFallback>
               <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/2048px-User-avatar.svg.png" alt="User avatar" />
@@ -16,6 +15,6 @@ export default function CardWithForm({ playerName }: { playerName: string }) {
           </Avatar>          
         </div>
       </div>
-    </Card>
+    </div>
   );
 }
